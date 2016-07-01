@@ -1,0 +1,245 @@
+﻿<Window x:Class="Particles.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:can="clr-namespace:Particles"
+        Title="粒子特效终极版" Height="450" Width="300">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF92E2F3" Offset="0"/>
+            <GradientStop Color="White" Offset="0.529"/>
+            <GradientStop Color="#FF899497" Offset="0.985"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <StackPanel Background="Transparent">
+        <Button Height="20" Width="50" Margin="0,15" HorizontalAlignment="Center">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid Background="{TemplateBinding Background}">
+                                    <Border BorderBrush="Gray" BorderThickness="0.5" x:Name="bd"/>
+                                    <TextBlock Text="烟" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+                                    <can:ParticleCanvas x:Name="cvs" MinSize="1" MaxSize="15" MinOpacity="0.3" MaxOpacity="0.3" Width="50" X1="25" X2="25" Y1="20" Y2="20" ParticlesBrush="Gray" ParticlesCount="100" Height="20" Margin="0">
+                                        <can:ParticleCanvas.Style>
+                                            <Style TargetType="can:ParticleCanvas">
+                                                <Setter Property="IsShowParticles" Value="False"/>
+                                                <Setter Property="Background" Value="Transparent"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="true">
+                                                        <Setter Property="IsShowParticles" Value="True"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </can:ParticleCanvas.Style>
+                                    </can:ParticleCanvas>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsFocused" Value="True">
+                                        <Setter Property="IsShowParticles" Value="True" TargetName="cvs"/>
+                                        <Setter Property="ParticlesBrush" Value="Black" TargetName="cvs"/>
+                                        <Setter Property="ParticlesCount" Value="100" TargetName="cvs"/>
+                                        <Setter Property="Background" Value="Gray" TargetName="bd"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Height="20" Width="50" Margin="0,15" HorizontalAlignment="Center" Content="火">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid Background="{TemplateBinding Background}">
+                                    <Border BorderBrush="Gray" BorderThickness="0.5" x:Name="bd"/>
+                                    <TextBlock Text="{TemplateBinding Content}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+                                    <can:ParticleCanvas x:Name="cvs" Direction="Up" Width="50" ParticlesBrush="#FFF9830C" MinSize="5" MaxSize="15" ParticlesCount="66" Height="20" Margin="0" X1="5" X2="45" Y1="20" Y2="20" >
+                                        <can:ParticleCanvas.Style>
+                                            <Style TargetType="can:ParticleCanvas">
+                                                <Setter Property="IsShowParticles" Value="False"/>
+                                                <Setter Property="Background" Value="Transparent"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="true">
+                                                        <Setter Property="IsShowParticles" Value="True"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </can:ParticleCanvas.Style>
+                                    </can:ParticleCanvas>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsFocused" Value="True">
+                                        <Setter Property="IsShowParticles" Value="True" TargetName="cvs"/>
+                                        <Setter Property="ParticlesBrush" Value="OrangeRed" TargetName="cvs"/>
+                                        <Setter Property="MinOpacity" Value="1" TargetName="cvs"/>
+                                        <Setter Property="MaxOpacity" Value="1" TargetName="cvs"/>
+                                        <Setter Property="Background" Value="Orange" TargetName="bd"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Height="20" Width="50" Margin="0,15" HorizontalAlignment="Center" Content="光">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid Background="{TemplateBinding Background}">
+                                    <Border BorderBrush="Gray" BorderThickness="0.5" x:Name="bd"/>
+                                    <TextBlock Text="{TemplateBinding Content}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+                                    <can:ParticleCanvas x:Name="cvs" Width="50" ParticlesBrush="Gold" MinSize="2" MaxSize="2" ParticlesCount="200" Height="20" Margin="0" X1="25" X2="25" Y1="10" Y2="10" >
+                                        <can:ParticleCanvas.Style>
+                                            <Style TargetType="can:ParticleCanvas">
+                                                <Setter Property="IsShowParticles" Value="False"/>
+                                                <Setter Property="Background" Value="Transparent"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="true">
+                                                        <Setter Property="IsShowParticles" Value="True"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </can:ParticleCanvas.Style>
+                                    </can:ParticleCanvas>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsFocused" Value="True">
+                                        <Setter Property="IsShowParticles" Value="True" TargetName="cvs"/>
+                                        <Setter Property="ParticlesBrush" Value="Yellow" TargetName="cvs"/>
+                                        <Setter Property="ParticlesCount" Value="200" TargetName="cvs"/>
+                                        <Setter Property="MinOpacity" Value="1" TargetName="cvs"/>
+                                        <Setter Property="MaxOpacity" Value="1" TargetName="cvs"/>
+                                        <Setter Property="Background" Value="#FF33342F" TargetName="bd"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Height="20" Width="50" Margin="0,15" HorizontalAlignment="Center" Content="雨">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid Background="{TemplateBinding Background}">
+                                    <Border BorderBrush="Gray" BorderThickness="0.5" x:Name="bd"/>
+                                    <TextBlock Text="{TemplateBinding Content}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+                                    <can:ParticleCanvas x:Name="cvs" Direction="Down" Width="50" ParticlesBrush="LightBlue" MinSize="2" MaxSize="2" ParticlesCount="50" Height="20" Margin="0" X1="5" X2="45" Y1="0" Y2="0" >
+                                        <can:ParticleCanvas.Style>
+                                            <Style TargetType="can:ParticleCanvas">
+                                                <Setter Property="IsShowParticles" Value="False"/>
+                                                <Setter Property="Background" Value="Transparent"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="true">
+                                                        <Setter Property="IsShowParticles" Value="True"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </can:ParticleCanvas.Style>
+                                    </can:ParticleCanvas>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsFocused" Value="True">
+                                        <Setter Property="IsShowParticles" Value="True" TargetName="cvs"/>
+                                        <Setter Property="ParticlesBrush" Value="#FF82EAD7" TargetName="cvs"/>
+                                        <Setter Property="ParticlesCount" Value="50" TargetName="cvs"/>
+                                        <Setter Property="MinOpacity" Value="1" TargetName="cvs"/>
+                                        <Setter Property="MaxOpacity" Value="1" TargetName="cvs"/>
+                                        <Setter Property="Background" TargetName="bd">
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FF2FB4E0" Offset="0"/>
+                                                    <GradientStop Color="#FFF3F5F5" Offset="1"/>
+                                                    <GradientStop Color="#FFB7DDEA" Offset="0.477"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Height="20" Width="50" Margin="0,15" HorizontalAlignment="Center" Content="雪">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid Background="{TemplateBinding Background}">
+                                    <Border BorderBrush="Gray" BorderThickness="0.5" x:Name="bd"/>
+                                    <TextBlock Text="{TemplateBinding Content}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+                                    <can:ParticleCanvas x:Name="cvs" Direction="Shine" MinSpeed="1" MaxSpeed="5" Width="50" ParticlesBrush="LightCyan" MinSize="5" MaxSize="5" ParticlesCount="50" Height="20" Margin="0" X1="5" X2="45" Y1="0" Y2="0" >
+                                        <can:ParticleCanvas.Style>
+                                            <Style TargetType="can:ParticleCanvas">
+                                                <Setter Property="IsShowParticles" Value="False"/>
+                                                <Setter Property="Background" Value="Transparent"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="true">
+                                                        <Setter Property="IsShowParticles" Value="True"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </can:ParticleCanvas.Style>
+                                    </can:ParticleCanvas>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsFocused" Value="True">
+                                        <Setter Property="IsShowParticles" Value="True" TargetName="cvs"/>
+                                        <Setter Property="ParticlesBrush" Value="#FF82EAD7" TargetName="cvs"/>
+                                        <Setter Property="ParticlesCount" Value="50" TargetName="cvs"/>
+                                        <Setter Property="MinOpacity" Value="1" TargetName="cvs"/>
+                                        <Setter Property="MaxOpacity" Value="1" TargetName="cvs"/>
+                                        <Setter Property="Background" TargetName="bd">
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="#FF2FB4E0" Offset="0"/>
+                                                    <GradientStop Color="#FFF3F5F5" Offset="1"/>
+                                                    <GradientStop Color="#FFB7DDEA" Offset="0.477"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <can:AdornedControl Height="45" Width="auto" Margin="0,0,0,0" Background="Transparent">
+            <can:AdornedControl.AdornerContent>
+                <can:ParticleCanvas IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Direction="Shine" MinSpeed="1" MaxSpeed="5" Width="auto" ParticlesBrush="LightCyan" MinSize="5" MaxSize="5" ParticlesCount="50" Height="45" Margin="0" X1="5" X2="105" Y1="0" Y2="0" IsShowParticles="True">
+                </can:ParticleCanvas>
+            </can:AdornedControl.AdornerContent>
+            <Label HorizontalAlignment="Left" Width="auto" Height="45" Content="Template版↑&#13; Adorner Layer版↓">
+            </Label>
+        </can:AdornedControl>
+        <can:AdornedControl Height="120" Width="200" Margin="0,0" Background="Transparent" IsAdornerVisible="True">
+            <can:AdornedControl.AdornerContent>
+                <can:ParticleCanvas IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Direction="Shine" MinSpeed="1" MaxSpeed="5" Width="200" ParticlesBrush="LightCyan" MinSize="5" MaxSize="5" ParticlesCount="50" Height="120" Margin="0" X1="5" X2="195" Y1="0" Y2="0" IsShowParticles="True">
+                </can:ParticleCanvas>
+            </can:AdornedControl.AdornerContent>
+            <StackPanel>
+                <DatePicker Height="25"/>
+                <TextBox/>
+                <ComboBox/>
+                <Button Content="按钮"/>
+                <RadioButton/>
+                <CheckBox/>
+            </StackPanel>
+        </can:AdornedControl>
+    </StackPanel>
+</Window>
