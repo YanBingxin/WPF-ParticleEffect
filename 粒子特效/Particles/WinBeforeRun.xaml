@@ -1,0 +1,140 @@
+﻿<Window x:Class="Hlwdsj.SY.View.WinBeforeRun"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:Particle="clr-namespace:Particles"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" WindowStyle="None" Width="600" Height="330" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False">
+    <Grid Margin="3">
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="50"/>
+            <RowDefinition  Height="50"/>
+            <RowDefinition />
+            <RowDefinition  Height="50"/>
+        </Grid.RowDefinitions>
+        <DockPanel  Grid.Row="0" Background="DarkCyan">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="White" Text="示例"></TextBlock>
+        </DockPanel>
+        <Button x:Name="btnYes" Content="不满意" Grid.Row="1" Width="100" Height="30" HorizontalAlignment="Left" Margin="10,0,0,0" Click="btnYes_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="bd" BorderBrush="#cf3a00" CornerRadius="3" BorderThickness="0.8" Margin="1" Background="{TemplateBinding Background}" Opacity="0.9">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Effect">
+                                            <Setter.Value>
+                                                <DropShadowEffect BlurRadius="13" Color="#c43700"  ShadowDepth="1" Opacity="0.7"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="0.9" ScaleY="0.95" CenterX="35" CenterY="20" />
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+        <RichTextBox Grid.Row="2"  BorderBrush="Transparent" IsReadOnly="True">
+            <FlowDocument >
+                <Paragraph FontSize="18" Margin="0" TextAlignment="Justify" TextIndent="37.33">
+                    <Span Foreground="Black" FontFamily="微软雅黑" Language="zh-cn">
+                        <Run Text='例子效果展示'/>
+                    </Span>
+                </Paragraph>
+                <Paragraph FontSize="18" Margin="0" TextAlignment="Justify" TextIndent="37.33">
+                    <Span Foreground="Black" FontFamily="微软雅黑" Language="zh-cn">
+                        <Run Text='您是否满意？'/>
+                    </Span>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Button x:Name="btnNo" Content="满意" Grid.Row="3" Width="100" Height="40" HorizontalAlignment="Right" Margin="0,0,10,0" Click="btnNo_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background" Value="DarkCyan"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid Background="Transparent">
+                                    <Border x:Name="bd" BorderBrush="White" CornerRadius="3" BorderThickness="0.8" Margin="1" Background="{TemplateBinding Background}" Opacity="0.9">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                                    </Border>
+                                    <Particle:ParticleCanvas x:Name="cvs" Margin="-5,-5,0,0" Width="110" ParticlesBrush="DarkCyan" MinOpacity="0.1" MaxOpacity="0.7" MinSize="1" MaxSize="2" ParticlesCount="50" Height="50" X1="50" X2="50" Y1="20" Y2="20" >
+                                        <Particle:ParticleCanvas.Style>
+                                            <Style TargetType="Particle:ParticleCanvas">
+                                                <Setter Property="IsShowParticles" Value="False"/>
+                                                <Setter Property="Background" Value="Transparent"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="true">
+                                                        <Setter Property="IsShowParticles" Value="True"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Particle:ParticleCanvas.Style>
+                                    </Particle:ParticleCanvas>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsFocused" Value="true">
+                                        <Setter Property="Effect">
+                                            <Setter.Value>
+                                                <DropShadowEffect BlurRadius="13" Color="#c43700"  ShadowDepth="1" Opacity="0.7"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="ParticlesBrush" Value="#c43700" TargetName="cvs"/>
+                                        <Setter TargetName="bd" Property="Background" Value="#c43700"/>
+                                        <Setter TargetName="cvs" Property="IsShowParticles" Value="true"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Effect">
+                                            <Setter.Value>
+                                                <DropShadowEffect BlurRadius="13" Color="#c43700"  ShadowDepth="1" Opacity="0.7"/>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="ParticlesBrush" Value="#c43700" TargetName="cvs"/>
+                                        <Setter TargetName="bd" Property="Background" Value="#c43700"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="RenderTransform">
+                                            <Setter.Value>
+                                                <ScaleTransform ScaleX="0.9" ScaleY="0.95" CenterX="35" CenterY="20" />
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="ParticlesBrush" Value="#c43700" TargetName="cvs"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style> 
+            <!--<Button.Effect>
+                <DropShadowEffect x:Name="be" BlurRadius="13" Color="#c43700"  ShadowDepth="1" Opacity="0.7"/>
+            </Button.Effect>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetName="be" Storyboard.TargetProperty="BlurRadius" Duration="0:0:1" AutoReverse="True" RepeatBehavior="Forever">
+                            <DoubleAnimation To="1"></DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>-->
+        </Button>
+    </Grid>
+</Window>

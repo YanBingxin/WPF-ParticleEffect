@@ -64,6 +64,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AdornedControl.cs" />
+    <Compile Include="WinBeforeRun.xaml.cs">
+      <DependentUpon>WinBeforeRun.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Window.xaml.cs">
       <DependentUpon>Window.xaml</DependentUpon>
     </Compile>
@@ -71,6 +74,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WinBeforeRun.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

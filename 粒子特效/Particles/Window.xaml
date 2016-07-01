@@ -236,9 +236,7 @@
                 <DatePicker Height="25"/>
                 <TextBox/>
                 <ComboBox/>
-                <Button Content="按钮"/>
-                <RadioButton/>
-                <CheckBox/>
+                <Button Content="点此展示应用示例" Click="Button_Click_1"/>
             </StackPanel>
         </can:AdornedControl>
     </StackPanel>
